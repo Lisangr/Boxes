@@ -103,7 +103,7 @@ public class CanvasButtons : MonoBehaviour
     public void OnHelpButtonClick()=>        helpPanel.SetActive(true);  
     public void OnSettingsButtonClick()=>        settingsPanel.SetActive(true);    
     public void OnLeadersButtonClick()=>        leadersPanel.SetActive(true);
-
+    /*
     public void OnStartButtonClick()
     {
         if (PlayerPrefs.HasKey("Level"))
@@ -128,6 +128,37 @@ public class CanvasButtons : MonoBehaviour
         else
         {
             Debug.LogWarning("LevelManager не найден в инстанцированном префабе!");
+        }
+    }
+    */
+    [SerializeField]private RandomRotateAndRemove rotateAndRemoveScript;
+    public void OnStartButtonClick()
+    {
+        if (PlayerPrefs.HasKey("Level"))
+        {
+            currentLevelIndex = PlayerPrefs.GetInt("Level");
+        }
+
+        gameCanvas.SetActive(true);
+        startCanvas.SetActive(false);
+
+        GameObject instantiatedPrefab = InstantiatePrefabForCurrentLevel();
+
+        levelManager = instantiatedPrefab.GetComponentInChildren<LevelManager>();
+        if (levelManager != null)
+        {
+            levelManager.LoadLevelFromJSON();
+        }
+        else
+        {
+            Debug.LogWarning("LevelManager не найден в инстанцированном префабе!");
+        }
+
+        // Проверяем наличие скрипта RandomRotateAndRemove после загрузки
+        rotateAndRemoveScript = FindObjectOfType<RandomRotateAndRemove>();
+        if (rotateAndRemoveScript == null)
+        {
+            Debug.LogError("RandomRotateAndRemove не найден после загрузки уровня!");
         }
     }
 

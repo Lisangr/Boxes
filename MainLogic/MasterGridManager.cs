@@ -6,6 +6,7 @@ public class MasterGridManager : MonoBehaviour
     public GridGenerator gridGenerator; // Ссылка на компонент генерации сетки
     public RandomRotateAndRemove rotateAndRemoveScript; // Ссылка на компонент вращения и удаления
     public GridMovementChecker movementChecker; // Ссылка на компонент проверки условий победы
+    public GameObject generatorGO;
     private int currentLevelIndex;
 
     [ContextMenu("Generate and Process Level")]
@@ -25,9 +26,11 @@ public class MasterGridManager : MonoBehaviour
             if (currentLevelIndex <= 59) 
             {
                 Debug.LogWarning("Уровень ЕЩЕ НЕ ПЕРЕВАЛИЛ за 3, генерация остановлена.");
+                generatorGO.SetActive(false);
                 return; // Остановить процесс, если уровень выше 3
             }
         }
+        generatorGO.SetActive(true);
         StartCoroutine(GenerateAndProcessCoroutine());
     }
 

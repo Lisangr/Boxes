@@ -12,7 +12,7 @@ public class GridMovementChecker : MonoBehaviour
     public LayerMask obstacleLayer;
     public string playerTag = "Player";
 
-    [SerializeField] private List<CubeMovement> cubes;
+    [SerializeField] public List<CubeMovement> cubes;
     [SerializeField] private GameObject winPanel;
     private int currentPoints;
 
