@@ -135,22 +135,6 @@ public class RandomRotateAndRemove : MonoBehaviour
         }
         DestroyImmediate(cube);
     }
-
-    /*
-    private void RemoveCubeFromScene(GameObject cube)
-    {
-        Debug.Log($"Удаляем объект {cube.name} из сцены...");
-        if (gridMovementChecker != null)
-        {
-            CubeMovement cubeMovement = cube.GetComponent<CubeMovement>();
-            if (cubeMovement != null)
-            {
-                gridMovementChecker.PopulateCubesList(); // Перезаполнение списка на случай пропуска
-                gridMovementChecker.RemoveCube();
-            }
-        }
-        DestroyImmediate(cube);
-    }*/
 }
 
 

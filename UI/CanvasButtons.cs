@@ -103,34 +103,7 @@ public class CanvasButtons : MonoBehaviour
     public void OnHelpButtonClick()=>        helpPanel.SetActive(true);  
     public void OnSettingsButtonClick()=>        settingsPanel.SetActive(true);    
     public void OnLeadersButtonClick()=>        leadersPanel.SetActive(true);
-    /*
-    public void OnStartButtonClick()
-    {
-        if (PlayerPrefs.HasKey("Level"))
-        {
-            currentLevelIndex = PlayerPrefs.GetInt("Level");
-        }
-
-        gameCanvas.SetActive(true);
-        startCanvas.SetActive(false);
-
-        // Инстанцируем префаб для текущего уровня
-        GameObject instantiatedPrefab = InstantiatePrefabForCurrentLevel();
-
-        // Попробуем найти LevelManager после инстанцирования
-        levelManager = instantiatedPrefab.GetComponentInChildren<LevelManager>();
-
-        if (levelManager != null)
-        {
-            // Восстанавливаем уровень из JSON
-            levelManager.LoadLevelFromJSON();
-        }
-        else
-        {
-            Debug.LogWarning("LevelManager не найден в инстанцированном префабе!");
-        }
-    }
-    */
+   
     [SerializeField]private RandomRotateAndRemove rotateAndRemoveScript;
     public void OnStartButtonClick()
     {

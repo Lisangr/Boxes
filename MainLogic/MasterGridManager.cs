@@ -25,9 +25,9 @@ public class MasterGridManager : MonoBehaviour
 
             if (currentLevelIndex <= 59) 
             {
-                Debug.LogWarning("Уровень ЕЩЕ НЕ ПЕРЕВАЛИЛ за 3, генерация остановлена.");
+                Debug.LogWarning("Уровень ЕЩЕ НЕ ПЕРЕВАЛИЛ за 59, генерация остановлена.");
                 generatorGO.SetActive(false);
-                return; // Остановить процесс, если уровень выше 3
+                return; // Остановить процесс, если уровень выше 59
             }
         }
         generatorGO.SetActive(true);
